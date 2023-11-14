@@ -138,7 +138,16 @@ def generate_response(question):
             st.write(bot_template.replace(
                 "{{MSG}}", message.content), unsafe_allow_html=True)
 
+def load_personal_info():
+    st.sidebar.subheader("About Yash Malik")
 
+    #Add your photo
+    st.sidebar.image("assets/yash_photo.jpg")
+
+    #Brief Description
+    st.sidebar.text("Hi, I'm Yash Malik, a passionate individual with a keen interest in Product Management and Business Analytics."
+                    "Feel free to ask me about my Past experiences, my accomplishments, skills, and some of my personal info!")
+                    
 ## Landing page UI
 def run_UI():
     """
@@ -157,6 +166,20 @@ def run_UI():
     # Add the custom CSS to the UI
     st.write(css, unsafe_allow_html=True)
 
+    #Load personalized info for the sidebar
+    #load_personal_info()
+    with st.sidebar:
+        st.subheader("About Yash Malik")
+
+        #Add your photo
+        st.image("assets/yash_photo.jpg")
+
+        #Brief Description
+        st.text("Hi, I'm Yash Malik, a passionate individual with a keen interest in Product Management and Business Analytics."
+                        "Feel free to ask me about my Past experiences, my accomplishments, skills, and some of my personal info!")
+                        
+
+
     # Initialize the session state variables to store the conversations and chat history
     if "conversations" not in st.session_state:
         st.session_state.conversations = None
@@ -164,10 +187,10 @@ def run_UI():
         st.session_state.chat_history = None
 
     # Set the page title
-    st.header("DocuMentor: Conversations with Your Data 🤖")
+    st.header("Hi, my name is Stevie, I am a Chatbot created by Yash 🤖")
 
     # Input text box for user query
-    user_question = st.text_input("Upload your data and ask me anything?")
+    user_question = st.text_input("Ask me anything about Yash?")
 
     # Check if the user has entered a query/prompt
     if user_question:
