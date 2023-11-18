@@ -163,7 +163,7 @@ def run_UI():
     """
 
     # Set the page tab title
-    st.set_page_config(page_title="DocuMentor", page_icon="🤖", layout="wide")
+    st.set_page_config(page_title="Yash's Chatbot", page_icon="🤖", layout="wide")
 
     # Add the custom CSS to the UI
     st.write(css, unsafe_allow_html=True)
