@@ -141,13 +141,15 @@ def generate_response(question):
 def load_personal_info():
     st.sidebar.subheader("About Yash Malik")
 
-    #Add your photo
+    # Add your photo
     st.sidebar.image("assets/yash_photo.jpg")
 
-    #Brief Description
-    st.sidebar.text("Hi, I'm Yash Malik, a passionate individual with a keen interest in Product Management and Business Analytics."
-                    "Feel free to ask me about my Past experiences, my accomplishments, skills, and some of my personal info!")
-                    
+    # Brief Description
+    st.sidebar.markdown("""
+        Hi, I'm Yash Malik, a passionate individual with a keen interest in Product Management and Business Analytics.
+        Feel free to ask me about my past experiences, my accomplishments, skills, and some of my personal info!
+    """)
+
 ## Landing page UI
 def run_UI():
     """
@@ -166,20 +168,24 @@ def run_UI():
     # Add the custom CSS to the UI
     st.write(css, unsafe_allow_html=True)
 
-    #Load personalized info for the sidebar
-    #load_personal_info()
+    # Sidebar menu
     with st.sidebar:
-        st.subheader("About Yash Malik")
+        st.subheader("Yash Malik")
 
-        #Add your photo
+        # Add your photo
         st.image("assets/yash_photo.jpg")
 
-        #Brief Description
-        st.text("Hi, I'm Yash Malik, a passionate individual with a keen interest in Product Management and Business Analytics."
-                        "Feel free to ask me about my Past experiences, my accomplishments, skills, and some of my personal info!")
-                        
+        # Brief Description
+        st.markdown("Hi, I'm Yash Malik, a passionate individual with a keen interest in Product Management and Business Analytics. Feel free to ask me about my past experiences, my accomplishments, skills, and some of my personal info!")
 
-
+        
+      # Provide hardcoded download link for the resume
+        st.subheader("Resume")
+        st.markdown("You can download my resume below:")
+        resume_path = "./assets/Yash_Malik_Resume.pdf"
+        st.sidebar.markdown(f"[Download Resume]({resume_path})", unsafe_allow_html=True)
+        #st.sidebar.download_button("Or click here", key="resume_download_button", label="Click here", file_path=resume_path)
+   
     # Initialize the session state variables to store the conversations and chat history
     if "conversations" not in st.session_state:
         st.session_state.conversations = None
@@ -187,10 +193,10 @@ def run_UI():
         st.session_state.chat_history = None
 
     # Set the page title
-    st.header("Hi, my name is Stevie, I am a Chatbot created by Yash 🤖")
+    st.header("Hi there, you can call me Stevie 🤖")
 
     # Input text box for user query
-    user_question = st.text_input("Ask me anything about Yash?")
+    user_question = st.text_input("Ask me about Yash's resume and Personal Leadrship Brand!")
 
     # Check if the user has entered a query/prompt
     if user_question:
